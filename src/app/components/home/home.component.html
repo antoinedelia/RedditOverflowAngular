@@ -19,11 +19,11 @@
                     </div>
                 </div>
                 <div class="summary">
-                    <h3><a href="/questions/37364973/what-is-the-difference-between-promises-and-observables"
+                    <h3><a [href]="post.permalink"
                             class="question-hyperlink">{{ post.title }}</a></h3>
                     <div class="excerpt">{{ post.selftext }}</div>
                     <div class="tags">
-                        <a href="/questions/tagged/angular" class="post-tag" title="" rel="tag">{{ post.subreddit }}</a>
+                        <a [href]="'/r/' + post.subreddit" class="post-tag" title="" rel="tag">{{ post.subreddit }}</a>
                     </div>
                     <div class="started fr">
                         <div class="user-info user-hover">

@@ -1,11 +1,11 @@
-<div class="snippet-hidden">
+<div class="snippet-hidden" *ngIf="isLoaded" >
   <div itemprop="mainEntity" itemscope itemtype="http://schema.org/Question">
     <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
     <div class="inner-content clearfix">
       <div id="dfp-tlb" class="everyonelovesstackoverflow everyoneloves__top-leaderboard"></div>
       <div id="question-header" class="grid">
         <h1 itemprop="name" class="grid--cell fs-headline1 fl1 ow-break-word"><a
-            href="/questions/18410035/ways-to-iterate-over-a-list-in-java" class="question-hyperlink">Title of post</a>
+            href="/questions/18410035/ways-to-iterate-over-a-list-in-java" class="question-hyperlink">{{ post.title }}</a>
         </h1>
         <div class="pl8 aside-cta grid--cell" role="navigation" aria-label="ask new question">
           <a href="/questions/ask" class="d-inline-flex ai-center ws-nowrap s-btn s-btn__primary">
@@ -28,7 +28,7 @@
                     class="svg-icon m0 iconArrowUpLg" width="36" height="36" viewBox="0 0 36 36">
                     <path d="M2 26h32L18 10z" /></svg></button>
                 <div class="js-vote-count grid--cell fc-black-500 fs-title grid fd-column ai-center"
-                  itemprop="upvoteCount" data-value="507">507</div>
+                  itemprop="upvoteCount" data-value="507">{{ post.score }}</div>
                 <button class="js-vote-down-btn grid--cell s-btn s-btn__unset c-pointer"
                   title="This question does not show any research effort; it is unclear or not useful"
                   aria-pressed="false" aria-label="down vote" data-selected-classes="fc-theme-primary"><svg
@@ -43,23 +43,19 @@
                   </svg>
                   <div class="js-favorite-count mt8" data-value="182">182</div>
                 </button>
-
-
               </div>
-
             </div>
-
 
             <div class="postcell post-layout--right">
 
               <div class="post-text" itemprop="text">
-                <p>Text goes here</p>
+                <p>{{ post.selftext }}</p>
               </div>
 
               <div class="post-taglist grid gs4 gsy fd-column">
                 <div class="grid ps-relative d-block">
                   <a href="/questions/tagged/java" class="post-tag" title="show questions tagged &#39;java&#39;"
-                    rel="tag">name of subreddit</a> <a href="/questions/tagged/loops" class="post-tag"
+                    rel="tag">{{ post.subreddit }}</a> <a href="/questions/tagged/loops" class="post-tag"
                     title="show questions tagged &#39;loops&#39;" rel="tag">nsfw</a> <a
                     href="/questions/tagged/collections" class="post-tag"
                     title="show questions tagged &#39;collections&#39;" rel="tag">spoilers</a>
@@ -77,7 +73,7 @@
                   <div class="post-signature owner grid--cell">
                     <div class="user-info user-hover">
                       <div class="user-action-time">
-                        asked <span title="2013-08-23 19:00:14Z" class="relativetime">Aug 23 '13 at 19:00</span>
+                        asked <span title="2013-08-23 19:00:14Z" class="relativetime">{{ post.created | date:'medium' }}</span>
                       </div>
                       <div class="user-gravatar32">
                         <a href="/users/1171509/ix3">
@@ -87,7 +83,7 @@
                         </a>
                       </div>
                       <div class="user-details" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <a href="/users/1171509/ix3">iX3</a><span class="d-none" itemprop="name">iX3</span>
+                        <a href="/users/1171509/ix3">{{ post.author }}</a><span class="d-none" itemprop="name">{{ post.author }} </span>
                         <div class="-flair">
                           <span class="reputation-score" title="reputation score " dir="ltr">5,017</span><span
                             title="3 gold badges"><span class="badge1"></span><span

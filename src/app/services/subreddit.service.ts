@@ -53,4 +53,24 @@ export class SubredditService {
     );
   }
 
+  getPostComments(postId: string): Observable<Post> {
+    return this.http.get<any>(this.apiUrl + postId + ".json").pipe(
+      tap(o => {
+        // this.previousPage = o.data.before;
+        // this.nextPage = o.data.after;
+      }),
+      map(o => {
+        const post = o[0].data.children[0].data;
+        const comments = o[1].data.children.map(c => c.data);
+        comments.forEach(element => {
+          let d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+          d.setUTCSeconds(element.created_utc);
+          element.created = d;
+        });
+        post.comments = comments;
+        return post;
+      })
+    );
+  }
+
 }
